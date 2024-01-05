@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "mytest-remix-app"
+client_id = "43dd54f99223884a5bd8fa51c13aae8b"
+application_url = "https://ssl-sacramento-providence-influences.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://ssl-sacramento-providence-influences.trycloudflare.com/auth/callback",
+  "https://ssl-sacramento-providence-influences.trycloudflare.com/auth/shopify/callback",
+  "https://ssl-sacramento-providence-influences.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "testdcg.myshopify.com"
