@@ -29,7 +29,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export const action = async ({ request, params }: ActionFunctionArgs) => {
     const { session } = await authenticate.admin(request);
     const { shop } = session;
-    const data = {
+    const data : any = {
       shop,
         ...Object.fromEntries(await request.formData()),        
     };
