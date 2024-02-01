@@ -64,13 +64,7 @@ export default function AddGiveaway() {
         const formDataSet = {
             name:appName,
             short_name:shortName,
-            start_date:startDate,
-            end_date:endDate,
-            start_time:startTime,
-            end_time:endTime,
-
-
-        }
+          }
         submit({formDataSet}, { method: "post" });
     }
     return (
