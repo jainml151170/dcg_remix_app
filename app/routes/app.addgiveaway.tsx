@@ -18,6 +18,7 @@ import {
 } from "@shopify/polaris";
 import { authenticate } from "../shopify.server";
 import db from "../db.server";
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
     await authenticate.admin(request);
@@ -36,8 +37,8 @@ export const action = async ({ request, params }: ActionFunctionArgs) => {
     console.log('data 1 : ',data)
     const Giveaways =
     params.id === "new"
-      ? await db.new_Giveaways.create({ data })
-      : await db.new_Giveaways.update({ where: { id: Number(params.id) }, data });
+      ? await db.giveaways.create({ data })
+      : await db.giveaways.update({ where: { id: Number(params.id) }, data });
 
     console.log('Giveaways : ', Giveaways)
     return null;
@@ -77,32 +78,32 @@ export default function AddGiveaway() {
     const [endTime, setEndTime] = useState('23:59');
 
     //handle start
-    const handleChangeAppName = useCallback((value) => {
+    const handleChangeAppName = useCallback((value : any) => {
         setDisabled(false); 
         setAppName(value);
     }, []);
 
-    const handleChangeAppShortName = useCallback((value) => {
+    const handleChangeAppShortName = useCallback((value : any) => {
         setDisabled(false);
         setShortName(value);
     }, []);
 
-    const handleStartDate = useCallback((value) => {
+    const handleStartDate = useCallback((value : any) => {
         setDisabled(false);
         setStartDate(value)
     }, []);
 
-    const handleEndDate = useCallback((value) => {
+    const handleEndDate = useCallback((value : any) => {
         setDisabled(false);
         setEndDate(value)
     }, []);
 
-    const handleStartTime = useCallback((value) => {
+    const handleStartTime = useCallback((value : any) => {
         setDisabled(false);
         setStartTime(value)
     }, []);
 
-    const handleEndTime = useCallback((value) => {
+    const handleEndTime = useCallback((value : any) => {
         setDisabled(false);
         setEndTime(value)
     }, []);
