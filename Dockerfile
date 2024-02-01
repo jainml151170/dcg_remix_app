@@ -7,6 +7,7 @@ COPY . .
 
 ENV NODE_ENV=production
 
+RUN npm config set legacy-peer-deps true
 RUN npm install --force
 # Remove CLI packages since we don't need them in production by default.
 # Remove this line if you want to run CLI commands in your container.
